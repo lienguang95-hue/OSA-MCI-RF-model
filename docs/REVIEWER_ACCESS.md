@@ -30,6 +30,14 @@ The calculator estimates the probability of **concurrent clinically defined MCI*
 - no prediction when a required input is missing
 - intended for trained sleep-clinic/respiratory-care professionals
 
-## Binary model object
+## Permanent binary-model archive
 
-The canonical RDS SHA-256 is `7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463`. The binary RDS file still requires permanent external archival (e.g., Zenodo) before formal revision submission because the connected GitHub writer used for this repository cannot directly transfer the local binary object. See `model/README.md`.
+The canonical RDS SHA-256 is `7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463`.
+
+The versioned reproducibility package, including the canonical locked RF RDS object and the deployment copy, has been published in Zenodo:
+
+**DOI: 10.5281/zenodo.21872475**
+
+https://doi.org/10.5281/zenodo.21872475
+
+The RDS binary is not duplicated in this GitHub tree; reviewers should use the Zenodo record for the archived binary model object.
