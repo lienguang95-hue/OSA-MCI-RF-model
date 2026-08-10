@@ -63,17 +63,17 @@ These scripts document the synchronized `>=0.70` redundancy-review trigger and t
 
 The local prediction script is `prediction/01_RF_Prediction_Example.R`. The synthetic repeated-prediction check is `prediction/05_RF_Web_Concordance_Check.R`.
 
-## Zenodo archive status
+## Permanent Zenodo archive
 
-A Zenodo DOI has been **reserved** for the versioned software/model archive:
+The versioned software/model archive has been published in Zenodo:
 
-**10.5281/zenodo.21872475**
+**DOI: 10.5281/zenodo.21872475**
 
-DOI URL: https://doi.org/10.5281/zenodo.21872475
+https://doi.org/10.5281/zenodo.21872475
 
-The DOI is reserved but should not be described as a published/permanent public archive until the Zenodo record itself has been formally published. The Zenodo-ready archive contains the canonical locked RF RDS object and the deployment copy, each with SHA-256 `7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463`.
+The Zenodo archive contains the canonical locked RF RDS object and the deployment copy, each with SHA-256 `7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463`, together with the versioned reproducibility materials.
 
-The binary RDS object is not stored directly in this GitHub tree; reviewers should use the Zenodo record for the archived binary model after publication.
+The binary RDS object is not stored directly in this GitHub tree; the published Zenodo record is the permanent archive for the binary locked model.
 
 ## Data availability
 
