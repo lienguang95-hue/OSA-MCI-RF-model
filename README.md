@@ -63,11 +63,17 @@ These scripts document the synchronized `>=0.70` redundancy-review trigger and t
 
 The local prediction script is `prediction/01_RF_Prediction_Example.R`. The synthetic repeated-prediction check is `prediction/05_RF_Web_Concordance_Check.R`.
 
-## Important binary-model archival status
+## Zenodo archive status
 
-The live Shiny deployment uses the canonical locked RF RDS object whose SHA-256 is shown above. The connected GitHub writer used to assemble this repository cannot directly transfer the local binary RDS file. Accordingly, the RDS binary is not yet downloadable from this GitHub tree. It must be added to a permanent software archive such as Zenodo before the formal revision is submitted. See `model/README.md`.
+A Zenodo DOI has been **reserved** for the versioned software/model archive:
 
-Until that step is complete, the manuscript/response letter should not state that the binary locked model object is already downloadable from GitHub.
+**10.5281/zenodo.21872475**
+
+DOI URL: https://doi.org/10.5281/zenodo.21872475
+
+The DOI is reserved but should not be described as a published/permanent public archive until the Zenodo record itself has been formally published. The Zenodo-ready archive contains the canonical locked RF RDS object and the deployment copy, each with SHA-256 `7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463`.
+
+The binary RDS object is not stored directly in this GitHub tree; reviewers should use the Zenodo record for the archived binary model after publication.
 
 ## Data availability
 
@@ -79,4 +85,4 @@ The calculator is an implementation of the locked research model, not a prospect
 
 ## Version
 
-Repository publication-lock code package: `v1.0.0` (2026-08-10). The permanent binary-model archive DOI is pending.
+Repository publication-lock code package: `v1.0.0` (2026-08-10).
