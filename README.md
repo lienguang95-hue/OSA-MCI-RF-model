@@ -1,30 +1,26 @@
 # OSA-MCI locked random-forest model: code and web-calculator reproducibility package
 
-This repository supports the revised manuscript **“Interpretable machine learning for identifying mild cognitive impairment among Chinese patients with obstructive sleep apnea: a multicenter cross-sectional study.”**
+This public repository supports the revised manuscript **“Interpretable machine learning for identifying mild cognitive impairment among Chinese patients with obstructive sleep apnea: a multicenter cross-sectional study.”**
 
-## Scope
+## What reviewers can inspect here
 
-The archive provides the executable locked nine-predictor random-forest (RF) model, the Shiny calculator source, example prediction code, a variable dictionary, synthetic example input/output, software-concordance scripts, software/session information, and publication-lock code for the synchronized feature-selection steps used in the revised manuscript.
+The repository provides the Shiny calculator source, locked prediction/preprocessing logic, example prediction code, a variable dictionary, synthetic example input/output, software-concordance code, software/session information, data/code provenance notes, and publication-lock feature-selection code.
 
-**Patient-level development and validation data are not included** because of privacy, informed-consent, and institutional-governance restrictions. Consequently, scripts that require patient-level data cannot be executed by external users unless equivalent authorized data are supplied.
+**Patient-level development and validation data are not included** because of privacy, informed-consent, and institutional-governance restrictions.
 
 ## Public web calculator
 
-The deployed calculator is available at:
-
 https://mciriskmodel.shinyapps.io/make_web/
 
-It estimates the probability of **concurrent clinically defined MCI** in patients with OSA and is intended only to prioritize formal cognitive assessment. It is not a stand-alone diagnosis, does not predict future cognitive decline, and should not replace standardized cognitive assessment or clinical judgment.
+The calculator estimates the probability of **concurrent clinically defined MCI** in patients with OSA and is intended only to prioritize formal cognitive assessment. It is not a stand-alone diagnosis, does not predict future cognitive decline, and should not replace standardized cognitive assessment or clinical judgment.
 
-## Locked model
+## Locked model specification
 
 - Model: random forest
 - Final predictors: 9
 - Positive class: `Yes`
 - Training-derived prioritization threshold: `0.3228`
-- Canonical locked model file: `model/AAA_locked_RF_bundle.rds`
-- Deployment copy used by Shiny: `app/AAA_locked_RF_bundle.rds`
-- SHA-256: `7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463`
+- Canonical RDS SHA-256: `7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463`
 
 The nine required inputs are:
 
@@ -43,52 +39,35 @@ See `metadata/RF_variable_dictionary.csv` for coding and units.
 ## Repository structure
 
 ```text
-model/       locked RF bundle
-app/         Shiny source and local/preflight scripts
-prediction/  example prediction and software-concordance checks
+app/         Shiny source and preflight/local-run scripts
+prediction/  example prediction and synthetic software-concordance checks
 metadata/    variable dictionary, model specification, R session information
 examples/    synthetic example input/output and concordance cases
-analysis/
-  python/    publication-lock feature-selection and publication-output code
-  r/         supporting R analysis scripts that do not define the authoritative Figure 3 feature-selection implementation
-docs/        model card, data availability, security/provenance notes
+analysis/    publication-lock feature-selection and supporting preparation code
+docs/        model card, data availability, provenance, security, reviewer guide
+model/       locked-model archival status and SHA-256
 ```
 
-## Important code-provenance note
+## Feature-selection publication lock
 
-The publication-lock implementation for the revised feature-selection description is:
+The authoritative public implementation for the revised feature-selection description is:
 
 - `analysis/python/01_redundancy_review_0p70.py`
 - `analysis/python/02_dummy_matrix_lasso_boruta_consensus.py`
 
-These scripts implement the synchronized `>=0.70` redundancy-review trigger and the common dummy-coded matrix used by both LASSO and Boruta, with mapping back to parent predictors and the locked `24 -> 34`, `17/11`, and `9` counts.
+These scripts document the synchronized `>=0.70` redundancy-review trigger and the common dummy-coded matrix used by both LASSO and Boruta, followed by mapping back to parent predictors: `27 -> 24` original predictors, `34` dummy-coded columns, `17` LASSO parent predictors, `11` Boruta parent predictors, and `9` consensus predictors.
 
-Historical exploratory R scripts that applied Boruta directly to original predictor columns are **not included as the final Figure 3 implementation**, because doing so would conflict with the revised manuscript. The locked RF object is the executable reference for prediction.
+## Example prediction
 
-## Reproduce an example prediction
+`examples/RF_example_input.csv` corresponds to an estimated probability of approximately `0.556` with the locked threshold `0.3228`, resulting in **Prioritize formal cognitive assessment**.
 
-From the repository root, run:
+The local prediction script is `prediction/01_RF_Prediction_Example.R`. The synthetic repeated-prediction check is `prediction/05_RF_Web_Concordance_Check.R`.
 
-```r
-source("prediction/01_RF_Prediction_Example.R")
-```
+## Important binary-model archival status
 
-The synthetic example in `examples/RF_example_input.csv` should return approximately:
+The live Shiny deployment uses the canonical locked RF RDS object whose SHA-256 is shown above. The connected GitHub writer used to assemble this repository cannot directly transfer the local binary RDS file. Accordingly, the RDS binary is not yet downloadable from this GitHub tree. It must be added to a permanent software archive such as Zenodo before the formal revision is submitted. See `model/README.md`.
 
-```text
-Predicted_MCI_probability = 0.556
-Locked_threshold = 0.3228
-Prioritization = Prioritize formal cognitive assessment
-```
-
-## Run the Shiny application locally
-
-The deployed app uses the locked model and saved preprocessing components; it does not refit, retune, reselect predictors, recalibrate, or re-estimate the threshold at runtime.
-
-```r
-source("app/00_Install_and_Preflight_RF_Web_FIXED.R")
-source("app/02_Run_RF_Web_Local.R")
-```
+Until that step is complete, the manuscript/response letter should not state that the binary locked model object is already downloadable from GitHub.
 
 ## Data availability
 
@@ -100,4 +79,4 @@ The calculator is an implementation of the locked research model, not a prospect
 
 ## Version
 
-Publication-lock archive: `v1.0.0` (2026-08-10).
+Repository publication-lock code package: `v1.0.0` (2026-08-10). The permanent binary-model archive DOI is pending.
