@@ -1,0 +1,4 @@
+"Coffee_consumption","Sports_status","AHI","MSaO2","Depressive_symptoms_total_score","Anxiety_total_score","Drowsiness_total_score","Stress_total_score","Sleep_quality_total_score","Predicted_MCI_probability","Locked_threshold","Prioritization"
+"1","1",15,94,4,4,5,15,5,0,0.3228,"Below the model prioritization threshold"
+"2","2",35,92,9,12,12,33,11,0.568,0.3228,"Prioritize formal cognitive assessment"
+"3","3",70,88,15,18,20,50,18,0.756,0.3228,"Prioritize formal cognitive assessment"

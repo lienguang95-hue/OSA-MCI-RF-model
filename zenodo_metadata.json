@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "title": "OSA-MCI locked random-forest model and Shiny calculator reproducibility package",
+    "upload_type": "software",
+    "description": "Publication-lock code, locked random-forest model object, Shiny source, prediction examples, variable dictionary, software-concordance checks, and software/session information supporting a multicenter cross-sectional diagnostic-prediction study of concurrent mild cognitive impairment among Chinese patients with obstructive sleep apnea. Patient-level datasets are not included because of privacy and institutional-governance restrictions.",
+    "creators": [
+      {"name": "Li, Enguang"},
+      {"name": "Ai, Fangzhu"},
+      {"name": "Cai, Peipei"},
+      {"name": "Wen, Kuo"},
+      {"name": "Guo, Botang"},
+      {"name": "Wen, Hongjuan"}
+    ],
+    "keywords": ["obstructive sleep apnea", "mild cognitive impairment", "random forest", "SHAP", "clinical prediction model", "Shiny"],
+    "access_right": "open",
+    "version": "1.0.0"
+  }
+}

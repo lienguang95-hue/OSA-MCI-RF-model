@@ -1,0 +1,44 @@
+name: Materialize locked RF model
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.model_materialization/**'
+      - '.github/workflows/materialize-locked-model.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Reconstruct locked RF object and verify hash
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p model app
+          base64 --decode .model_materialization/locked_model.xz.b64 > /tmp/locked_model.xz
+          xz --decompress --stdout /tmp/locked_model.xz > model/AAA_locked_RF_bundle.rds
+          echo '7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463  model/AAA_locked_RF_bundle.rds' | sha256sum --check
+          cp model/AAA_locked_RF_bundle.rds app/AAA_locked_RF_bundle.rds
+          cmp model/AAA_locked_RF_bundle.rds app/AAA_locked_RF_bundle.rds
+
+      - name: Commit verified model objects and remove bootstrap material
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .model_materialization
+          rm -f .github/workflows/materialize-locked-model.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Materialize verified locked RF model object'
+          git push

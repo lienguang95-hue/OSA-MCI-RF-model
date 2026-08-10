@@ -1,0 +1,14 @@
+.Rhistory
+.RData
+.Rproj.user/
+rsconnect/
+*.Rproj
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+secrets.*
+credentials.*
+patient_data/
+restricted_data/
