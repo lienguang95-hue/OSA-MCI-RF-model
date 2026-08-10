@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "OSA-MCI locked random-forest model and web-calculator reproducibility package"
+message: "If you use this software, please cite the associated manuscript and this software archive."
+type: software
+authors:
+  - family-names: Li
+    given-names: Enguang
+  - family-names: Ai
+    given-names: Fangzhu
+  - family-names: Cai
+    given-names: Peipei
+  - family-names: Wen
+    given-names: Kuo
+  - family-names: Guo
+    given-names: Botang
+  - family-names: Wen
+    given-names: Hongjuan
+version: 1.0.0
+date-released: 2026-08-10
+repository-code: "https://github.com/lienguang95-hue/OSA-MCI-RF-model"
