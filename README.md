@@ -84,17 +84,23 @@ Across alternative backgrounds, global rank concordance versus the primary analy
 
 The local prediction script is `prediction/01_RF_Prediction_Example.R`. The synthetic repeated-prediction check is `prediction/05_RF_Web_Concordance_Check.R`.
 
-## Permanent Zenodo archive
+## Permanent Zenodo archives
 
-The versioned software/model archive is published in Zenodo:
+The canonical locked RF model object and the original versioned reproducibility package are archived in Zenodo:
 
-**DOI: 10.5281/zenodo.21872475**
+**Locked-model archive DOI: 10.5281/zenodo.21872475**
 
 https://doi.org/10.5281/zenodo.21872475
 
-The Zenodo archive contains the canonical locked RF RDS object and the deployment copy, each with SHA-256 `7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463`, together with versioned reproducibility materials. The round-2 SHAP sensitivity addendum is synchronized in this GitHub repository and should be included in the next Zenodo version before final manuscript submission.
+This archive contains the canonical locked RF RDS object and deployment copy, each with SHA-256 `7aac8100312e67b8929c353465e41702c14bcf1ae9d54bc5418540a6eaf6b463`, together with the original versioned reproducibility materials.
 
-The binary RDS object is not stored directly in this GitHub tree; the published Zenodo record is the permanent archive for the binary locked model.
+The round-2 reviewer-requested training-only SHAP alternative-background sensitivity addendum is archived separately in Zenodo:
+
+**Round-2 SHAP addendum DOI: 10.5281/zenodo.22130416**
+
+https://doi.org/10.5281/zenodo.22130416
+
+The binary RDS object is not stored directly in this GitHub tree; the locked-model Zenodo archive remains the permanent archive for the canonical model object. The SHAP addendum DOI provides a permanent archive of the new round-2 explanation-sensitivity script and publication-facing summary outputs.
 
 ## Data availability
 
@@ -106,4 +112,4 @@ The calculator is an implementation of the locked research model, not a prospect
 
 ## Version
 
-Repository publication-lock code package: `v1.1.0` (2026-08-27). This revision adds the training-only alternative-background SHAP sensitivity analysis requested during round-2 peer review.
+Repository publication-lock code package: `v1.1.0` (2026-08-27). This revision adds the training-only alternative-background SHAP sensitivity analysis requested during round-2 peer review and links its permanent Zenodo addendum archive.
